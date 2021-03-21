@@ -71,7 +71,7 @@ bot.run("token")
 ```py
 @bot.command()
 async def error(ctx):
-    await Eg(ctx, description="Это пример ошибки.", title="Возникла ошибка!", color=0x00FF00, code=78, emoji="💢", footer="Администраторы уже решают проблему.").send_error(ctx)
+    await Eg(ctx, description="Это пример ошибки.", title="Возникла ошибка!", color=0x00FF00, code=78, emoji="💢", footer="Администраторы уже решают эту проблему.").send_error(ctx)
 ```
 
 Вывод:
