@@ -40,7 +40,7 @@ from DSErrorsGenerator import ErrorGenerator
 
 Использование функции:
 ```py
-await ErrorGenerator(<Arguments>).function(ctx)
+await ErrorGenerator(ctx, description="Здесь вы можете описать ошибку.", <Other arguments>).function(ctx)
 ```
 
 Пример кода:
