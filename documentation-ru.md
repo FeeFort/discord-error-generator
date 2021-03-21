@@ -67,8 +67,6 @@ bot.run("token")
 
 ![First example of russian documentation](screenshots/example-ru-1.png)
 
-Далее будем рассматривать на примере одной команды, дабы не делать документацию огромной.
-
 Передадим все существующие аргументы:
 ```py
 @bot.command()
