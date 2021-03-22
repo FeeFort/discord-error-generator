@@ -6,12 +6,13 @@ DSErrorsGenerator designed to simplify the creation of user error messages. The 
 
 Parameter | Type | Requered | Standard value | Information |
 --- | --- | --- | --- |---
-Title | `String (str)` | No | `Ошибка!` | The header of the embed that reports the error.
+Title | `String (str)` | No | `Error!` | The header of the embed that reports the error.
 Description | `String (str)` | Yes | `None` | Description of the error.
-Color | `Integer (int)` | No | `0xFF0000 (Красный)` | The color of the embed.
+Color | `Integer (int)` | No | `0xFF0000 (Red)` | The color of the embed.
 Emoji | `String (str)` | No | `❌` | The emoji in the title.
 Code | `Integer (int)` | No | `None` | Error code (if available).
-Footer | `String (str)` | No | `None` | Embed footer
+Footer | `String (str)` | No | `None` | Embed footer.
+Lang (Language) | `String (str)` | Yes | `None` | Language of error.
 
 # ❌ Errors
 
@@ -20,6 +21,7 @@ Error | Information
 `MissingArgument` | Raised, when one of the required arguments (Description and ctx) was omitted.
 `BadObjectType` | Raised, when the object type does not match the expected type.
 `MissingEmoji` | Raised, when an emoji is missing from the Emoji object.
+`BadLanguage` | Raised, when an invalid language was specified.
 
 # 🛠️ Functions
 
@@ -39,7 +41,7 @@ from DSErrorsGenerator import ErrorGenerator
 
 Use function:
 ```py
-await ErrorGenerator(description="Here you can describe the error.", <Other arguments>).function()
+await ErrorGenerator(description="Here you can describe the error.", lang="en", <Other arguments>).function()
 ```
 
 Example of the code:
@@ -57,18 +59,30 @@ async def on_ready():
 
 @bot.command()
 async def error(ctx):
-    await Eg(description="This is example of error.").send_error(ctx)
+    await Eg(description="This is example of error.", lang="en").send_error(ctx) # Note that I passed ctx to the arguments of the send_error() function.
 
 bot.run("token")
 ```
 
 ![First example of english documentation](screenshots/example-en-1.png)
 
+Function `generate_error()`:
+```py
+@bot.command()
+async def error(ctx):
+    url = "https://bit.ly/316XG00"
+    embed = await Eg(description="This is example of error.", lang="en").generate_error()  # I'm using a different function here, so I don't need to pass ctx to the function arguments.
+    embed.set_image(url=url)  # Made minor adjustments to the Embed - set image.
+    await ctx.send(embed = embed)
+```
+
+![Second example of english documentation](screenshots/example-en-3.png)
+
 Passing all existing arguments:
 ```py
 @bot.command()
 async def error(ctx):
-    await Eg(description="This is example of error.", title="An error occurred!", color=0x00FF00, code=78, emoji="💢", footer="The administrators are already solving the problem.").send_error(ctx)
+    await Eg(description="This is example of error.", lang="en", title="An error occurred!", color=0x00FF00, code=78, emoji="💢", footer="The administrators are already solving the problem.").send_error(ctx)
 ```
 
-![Second example of russian documentation](screenshots/example-en-2.png)
+![Third example of russian documentation](screenshots/example-en-2.png)
