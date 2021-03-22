@@ -12,7 +12,7 @@ Color | `Integer (int)` | No | `0xFF0000 (Red)` | The color of the embed.
 Emoji | `String (str)` | No | `❌` | The emoji in the title.
 Code | `Integer (int)` | No | `None` | Error code (if available).
 Footer | `String (str)` | No | `None` | Embed footer.
-Lang (Language) | `String (str)` | Yes | `None` | Language of error.
+Lang (Language) | `String (str)` | Yes | `None` | Language of error. Can be `ru` or `en`
 
 # ❌ Errors
 
