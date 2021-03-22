@@ -39,7 +39,7 @@ from DSErrorsGenerator import ErrorGenerator
 
 Use function:
 ```py
-await ErrorGenerator(description="Here you can describe the error.", <Other arguments>).function(ctx)
+await ErrorGenerator(description="Here you can describe the error.", <Other arguments>).function()
 ```
 
 Example of the code:
