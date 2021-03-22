@@ -6,7 +6,6 @@ DSErrorsGenerator designed to simplify the creation of user error messages. The 
 
 Parameter | Type | Requered | Standard value | Information |
 --- | --- | --- | --- |---
-ctx | `discord.ext.commands.Context` | Yes | `None` | Used to automatically send a message.
 Title | `String (str)` | No | `Ошибка!` | The header of the embed that reports the error.
 Description | `String (str)` | Yes | `None` | Description of the error.
 Color | `Integer (int)` | No | `0xFF0000 (Красный)` | The color of the embed.
@@ -29,7 +28,7 @@ Name | Type | What the function does
 `send_error()` | Coroutine | Used for generating and sending Embed messages.
 `generate_error()` | Coroutine | Used to generate an Embed message. Recommended if you want to make any additional changes.
 
-In the arguments of each function, you must pass `ctx`
+In the arguments of `send_error()` function, you must pass `ctx`
 
 # 💡 Examples
 
@@ -40,7 +39,7 @@ from DSErrorsGenerator import ErrorGenerator
 
 Use function:
 ```py
-await ErrorGenerator(ctx, description="Here you can describe the error.", <Other arguments>).function(ctx)
+await ErrorGenerator(description="Here you can describe the error.", <Other arguments>).function(ctx)
 ```
 
 Example of the code:
@@ -58,7 +57,7 @@ async def on_ready():
 
 @bot.command()
 async def error(ctx):
-    await Eg(ctx, description="This is example of error.").send_error(ctx)
+    await Eg(description="This is example of error.").send_error(ctx)
 
 bot.run("token")
 ```
@@ -69,7 +68,7 @@ Passing all existing arguments:
 ```py
 @bot.command()
 async def error(ctx):
-    await Eg(ctx, description="This is example of error.", title="An error occurred!", color=0x00FF00, code=78, emoji="💢", footer="The administrators are already solving the problem.").send_error(ctx)
+    await Eg(description="This is example of error.", title="An error occurred!", color=0x00FF00, code=78, emoji="💢", footer="The administrators are already solving the problem.").send_error(ctx)
 ```
 
 ![Second example of russian documentation](screenshots/example-en-2.png)
