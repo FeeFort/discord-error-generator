@@ -14,7 +14,7 @@ DSErrorsGenerator создана для упрощения создания со
 ```py
 @bot.command()
 async def error(ctx):
-    await Eg(description="This is example of error.").send_error(ctx)
+    await Eg(description="This is example of error.", lang="en").send_error(ctx)
 ```
 ![](screenshots/example-en-1.png)
 
