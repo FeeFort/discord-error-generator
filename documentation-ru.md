@@ -67,7 +67,7 @@ bot.run("token")
 Функция `generate_error()`:
 ```py
 @bot.command()
-async def error(self, ctx):
+async def error(ctx):
     url = "https://bit.ly/316XG00"
     embed = await Eg(description="Это пример ошибки.").generate_error()  # Здесь я использую другую функцию, поэтому передавать ctx в аргументы функции не нужно.
     embed.set_image(url=url)  # Внёс небольшие поправки в Embed - поставил image.
